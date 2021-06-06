@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# Starting the database
-docker run --name postgres -e POSTGRES_PASSWORD=password -d postgres
-
 # Path for storing logs
 readonly logsDir='/opt/logs'
 
