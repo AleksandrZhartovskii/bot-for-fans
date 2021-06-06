@@ -21,7 +21,7 @@ import (
 )
 
 func main() {
-	l, err := logger.NewLogger("release-tracker", logger.LogLevelDebug)
+	l, err := logger.NewLogger("bot", logger.LogLevelDebug)
 	if err != nil {
 		log.Fatal(err)
 	}
