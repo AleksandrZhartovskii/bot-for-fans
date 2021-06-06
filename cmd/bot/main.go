@@ -20,8 +20,6 @@ import (
 	"time"
 )
 
-const pathToMigrations string = `file://../../internal/repository/pgdb/migrations/`
-
 func main() {
 	l, err := logger.NewLogger("release-tracker", logger.LogLevelDebug)
 	if err != nil {
@@ -92,7 +90,7 @@ func dialDB() (*sqlx.DB, error) {
 }
 
 func runPgMigrations() error {
-	m, err := migrate.New(pathToMigrations, os.Getenv("DB_DATA_SOURCE"))
+	m, err := migrate.New(os.Getenv("PATH_TO_MIGRATIONS"), os.Getenv("DB_DATA_SOURCE"))
 	if err != nil {
 		return err
 	}

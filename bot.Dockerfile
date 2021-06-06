@@ -12,8 +12,8 @@ RUN cd cmd/bot/ && CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o ma
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 WORKDIR /app/
-COPY --from=builder /app/cmd/release-tracker/main /app/
+COPY --from=builder /app/cmd/bot/main /app/
 COPY cmd/bot/.env .
-ADD internal/repository/pgdb/migrations migrations
+ADD internal/repository/pgdb/migrations ./internal/repository/pgdb/migrations
 EXPOSE 8080
 ENTRYPOINT ["./main"]
